@@ -1,6 +1,7 @@
 # elmx-webpack-boilerplate
 Base project with webpacked elm + elmx + sass
 
+Using [elmx-webpack-preloader](https://github.com/vic/elmx-webpack-preloader) to compile elmx to elm
 
 # Setup
 
