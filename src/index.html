@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <% for (var css of htmlWebpackPlugin.files.css) { %>
+      <link rel="stylesheet" href="/<%= css %>">
+    <% } %>
+  </head>
+  <body>
+    <div elm-app></div>
+    <% for (var js of htmlWebpackPlugin.files.js) { %>
+      <script src="/<%= js %>"></script>
+    <% } %>
+  </body>
+</html>
