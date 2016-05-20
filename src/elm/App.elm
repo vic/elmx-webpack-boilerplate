@@ -1,23 +1,16 @@
-module App where
+module App exposing (main)
 
-import Counter exposing(..)
-import View as View
+import Counter exposing (..)
+import View exposing (view)
 
 import Html exposing (Html)
+import Html.App as Html
 
-
-main : Signal Html
+main : Program Never
 main =
-  Signal.map (view action.address) model
-
-action : Signal.Mailbox Action
-action =
-  Signal.mailbox Noop
-
-model : Signal Model
-model =
-  Signal.foldp update initialModel action.signal
-
-view : Signal.Address Action -> Model -> Html
-view address model =
-  View.html address model
+  Html.program
+      { init = init
+      , update = update
+      , view = view
+      , subscriptions = subscriptions
+      }

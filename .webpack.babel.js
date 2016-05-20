@@ -26,6 +26,7 @@ const preLoaders = [
     loader: 'elmx-webpack-preloader',
     include: [join(__dirname, "src/elm")],
     query: {
+      sourceDirectories: [join(__dirname, "src/elm")],
       outputDirectory: '.tmp/elm'
     }
   },

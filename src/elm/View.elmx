@@ -1,17 +1,19 @@
 -- -*- mode: elm; coding: utf-8 -*- --
-module View(html) where
+module View exposing (view)
 
+import Counter exposing (Model, Msg(..))
+
+import Html exposing (Html)
 import Html.Attributes
-import Html exposing(..)
-import Html.Events exposing(onClick)
-import Counter exposing (..)
+import Html.Events exposing (onClick)
 
-html : Signal.Address Action -> Model -> Html
-html address model =
+
+view : Model -> Html Msg
+view model =
   let
-    count = model |> toString |> text
-    incrementCounter = Increment |> onClick address
-    decrementCounter = Decrement |> onClick address
+    count = model |> toString |> Html.text
+    incrementCounter = Increment |> onClick
+    decrementCounter = Decrement |> onClick
   in
     <div>
       <h1>Counter value: { count }</h1>

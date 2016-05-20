@@ -1,26 +1,26 @@
-module Counter(Model, Action(..), initialModel, update) where
+module Counter exposing (..)
 
-type alias Counter
-  = Int
+type alias Model = Int
 
-type alias Model
-  = Counter
-
-initialModel : Model
-initialModel =
-  0
-
-type Action
-  = Noop
+type Msg
+  = NoOp
   | Increment
   | Decrement
 
-update : Action -> Model -> Model
-update action model =
-  case action of
-    Noop ->
-      model
+
+init : (Model, Cmd Msg)
+init = (0, Cmd.none)
+
+update : Msg -> Model -> (Model, Cmd Msg)
+update msg model =
+  case msg of
+    NoOp ->
+      model ! []
     Increment ->
-      model + 1
+      (model + 1) ! []
     Decrement ->
-      model - 1
+      (model - 1) ! []
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
